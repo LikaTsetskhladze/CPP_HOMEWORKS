@@ -1,0 +1,29 @@
+//general formula of permutation 
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+unsigned int getN (char * txt, unsigned int MAX){
+	unsigned int tmp =0;
+	do {
+	cout<<txt; cin>>tmp;
+	}
+	while(tmp>=MAX);
+	return tmp;	
+}
+
+unsigned long int fact(unsigned short n) {
+
+unsigned long int tmp=1;
+for(int i=1; i<=n; i++) tmp*=i;
+return tmp;}	
+
+unsigned int getAnm (unsigned short m, unsigned short n) {
+if  (m>n) swap (m,n);
+return fact(n)/fact(n-m);}
+int main ()
+{
+unsigned int n=getN("N=", 100);
+unsigned int m=getN("M=", n);	
+cout<<"A("<<n<<";"<<m<<")="<<getAnm(m, n);
+}
