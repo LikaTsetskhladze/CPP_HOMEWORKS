@@ -1,0 +1,39 @@
+//sum of elements of two arrays
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+unsigned int getN ( ){
+unsigned int n=0;
+	do { 
+	cout<<"n="; cin>>n;
+}
+while (n==0);
+return n;	
+}
+//The function inputs array elements
+void input_mas ( double * A , unsigned int n){
+	for (int i=0;i<n; i++){
+		cout<<"A["<<i<<"]="; cin>>A[i]; }
+	}
+	//The function prints array
+void print_mas ( double * A , unsigned int n){
+	for (int i=0;i<n; i++){
+		cout<<"A["<<i<<"]="<<A[i]<<endl; }
+	}
+	//The function sums arrays
+	void jami_mas ( double * A, double * B, double * C, unsigned int n){
+	for (int i=0;i<n; i++){
+		C[i]=A[i]+B[i];
+		}
+	}
+int main (...){
+	unsigned int n=getN ( );
+	//dinamiuri
+	double * A = new double [n]; input_mas (A,n);
+	double * B = new double [n]; input_mas (B,n);
+	double * C = new double [n]; jami_mas (A,B,C,n);
+	print_mas (C,n);
+	return 0;
+	
+}
