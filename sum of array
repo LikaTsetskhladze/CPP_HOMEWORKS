@@ -1,4 +1,4 @@
-//sum of elements of two arrays
+//sum of two arrays
 
 #include <iostream>
 #include <cmath>
@@ -11,29 +11,44 @@ unsigned int n=0;
 while (n==0);
 return n;	
 }
-//The function inputs array elements
+// function for inputting an array
 void input_mas ( double * A , unsigned int n){
 	for (int i=0;i<n; i++){
-		cout<<"A["<<i<<"]="; cin>>A[i]; }
+		cout<<"["<<i<<"]="; cin>>A[i];
 	}
-	//The function prints array
+	}
+
+// function for printing an array
 void print_mas ( double * A , unsigned int n){
 	for (int i=0;i<n; i++){
 		cout<<"A["<<i<<"]="<<A[i]<<endl; }
 	}
-	//The function sums arrays
+// function for sum of two arrays
 	void jami_mas ( double * A, double * B, double * C, unsigned int n){
 	for (int i=0;i<n; i++){
 		C[i]=A[i]+B[i];
 		}
 	}
-int main (...){
-	unsigned int n=getN ( );
-	//dinamiuri
-	double * A = new double [n]; input_mas (A,n);
-	double * B = new double [n]; input_mas (B,n);
-	double * C = new double [n]; jami_mas (A,B,C,n);
-	print_mas (C,n);
-	return 0;
+int main(){
+	unsigned int n = getN();
+// dynamically allocate memory for arrays A, B, and C
+	double * A = new double [n]; 
+	cout << "Enter the elements of array A: \n";
+	input_mas(A, n); // input arrays A 
 	
+	double * B = new double [n]; // declare array B
+	cout << "Enter the elements of array B: \n";
+	input_mas(B, n); // call input_mas for array B	// input arrays B
+	double * C = new double [n];  
+// add arrays A and B, store the result in array C
+	jami_mas(A, B, C, n);
+// print the sum array C	
+	cout << "C array (sum of A and B array): \n";
+	print_mas(C, n);
+// free memory	
+	delete [] A;
+	delete [] B;
+	delete [] C;
+	
+	return 0;
 }
