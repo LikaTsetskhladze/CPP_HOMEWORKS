@@ -1,0 +1,20 @@
+//surface area and volume of a cylinder
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double S(double R, double h) {
+    double dmp=2*h*M_PI*R*R;
+    return dmp;}
+    
+double V(double R, double h) {
+	double dmp=h*M_PI*R*R;
+	return dmp;}
+  
+int main (...) {
+	double R; cout<<"R="; cin>>R;
+	double h; cout<<"h="; cin>>h;
+  cout<<"S="<<S(R,h)<<endl;
+  cout<<"V="<<V(h,R);
+  return 0;
+}
