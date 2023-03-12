@@ -1,0 +1,57 @@
+//program that takes an array of points and calculates the distance between each of them and the origin point
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Define the Point struct
+struct Point {
+    double x;
+    double y;
+}; 
+
+// Define the distance function between two points
+double mandzili(Point A, Point B) {
+    double tmp = sqrt(pow(B.x - A.x, 2) + pow(B.y - A.y, 2));
+    return tmp;	
+} 
+
+// Get input for a point
+Point shemotana() {
+    Point tmp;
+    cout << "x = "; cin >> tmp.x;
+    cout << "y = "; cin >> tmp.y;
+    return tmp;
+}
+
+// Define a function to return the origin point
+Point zero() {
+    Point tmp;
+    tmp.x = 0;
+    tmp.y = 0;
+    return tmp;
+}
+
+// Define a function to calculate the distance between a point and the origin
+double mandzilisat(Point A) {
+    return sqrt(A.x * A.x + A.y * A.y);
+}
+
+int main() {
+    unsigned int n = 0;
+    cout << "n = "; cin >> n;
+
+    // Create an array of n points
+    Point M[n];
+    for(int i = 0; i < n; i++) {
+        M[i] = shemotana();
+    }
+
+    // Print the distances between each point and the origin
+    for(int i = 0; i < n; i++) {
+        cout << mandzili(M[i], zero()) << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
