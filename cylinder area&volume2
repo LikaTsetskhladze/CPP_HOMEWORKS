@@ -1,4 +1,4 @@
-//surface area and volume of a cylinder
+//area and volume of a cylinder
 #include <iostream>
 #include <cmath>
 using namespace std;
