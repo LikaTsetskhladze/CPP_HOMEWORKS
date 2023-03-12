@@ -1,0 +1,23 @@
+//surface area and volume of a pyramid
+#include <iostream>
+#include <cmath>
+using namespace std;
+struct pyramid {
+	double B; double h; double p; double l;
+	double SA(); double V();
+};
+double pyramid::SA() {
+	return B+(p*l)/2;
+}
+double pyramid::V() {
+	return B*h/3;
+}
+int main () {
+	pyramid C;
+	cout<<"B="; cin>>C.B;
+	cout<<"p="; cin>>C.p;
+	cout<<"l="; cin>>C.l;
+	cout<<"h="; cin>>C.h;
+	cout<<"V="<<C.V()<<endl;
+	cout<<"SA="<<C.SA()<<endl;
+}
