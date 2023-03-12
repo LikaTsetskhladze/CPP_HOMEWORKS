@@ -1,0 +1,87 @@
+//perimeter and area of triagle when we know 2 angle and one side
+#include <iostream>
+#include <cmath>
+using namespace std;
+struct triagle {
+	double a;
+	double b;
+	double c;
+	double semiperimeter;
+	double perimeter ();
+	double area ();
+};
+double triagle::area() {
+return sqrt(semiperimeter*(semiperimeter-a)*(semiperimeter-b)*(semiperimeter-c));
+}
+double triagle::perimeter(){
+return a+b+c;
+}
+int main (...) {
+    triagle C;
+	cout<<"a="; cin>>C.a;
+	cout<<"b="; cin>>C.b;
+	cout<<"c="; cin>>C.c;
+	C.semiperimeter=(C.a + C.b + C.c)/2;
+	cout<<"area="<<C.area()<<endl;
+	cout<<"perimeter="<<C.perimeter();
+}
+
+//2nd version of this code
+#include <iostream>
+#include <cmath>
+using namespace std;
+struct triagle {
+	double a;
+	double b;
+	double c;
+	double semiperimeter();
+	double perimeter ();
+	double area ();
+};
+double triagle::semiperimeter () {
+return (a+b+c)/2;	
+}
+double triagle::area() {
+return sqrt(semiperimeter()*(semiperimeter()-a)*(semiperimeter()-b)*(semiperimeter()-c));
+}
+double triagle::perimeter(){
+	return a+b+c;
+}
+int main (...) {
+    triagle C;
+	cout<<"a="; cin>>C.a;
+	cout<<"b="; cin>>C.b;
+	cout<<"c="; cin>>C.c;
+	cout<<"area="<<C.area()<<endl;
+	cout<<"perimeter="<<C.perimeter();
+}
+
+
+
+//perimeter and area of triagle when we know 2 side and one angle
+#include <iostream>
+#include <cmath>
+using namespace std;
+struct triagle {
+	double a;
+	double b;
+	double cos;
+	double perimeter ();
+	double area ();
+};
+double triagle::area() {
+return 0.5*a*b*sqrt(1-cos*cos);
+}
+double triagle::perimeter(){
+	return a+b+sqrt(a*a+b*b-2*a*b*cos);
+}
+int main (...) {
+    triagle C;
+	cout<<"a="; cin>>C.a;
+	cout<<"b="; cin>>C.b;
+	C.cos=(C.a*C.a+C.b*C.b-(2*C.a*C.b*cos(0)))/(2*C.a*C.b);
+	cout<<"cos="; cin>>C.cos;
+	cout<<"area="<<C.area()<<endl;
+	cout<<"perimeter="<<C.perimeter();
+}
+
