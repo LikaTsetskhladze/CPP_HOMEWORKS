@@ -1,0 +1,44 @@
+//distance between two points
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Define the Point struct
+struct Point {
+    double x;
+    double y;
+}; 
+
+// Define the distance function between two points
+double mandzili(Point A, Point B) {
+    double tmp = sqrt(pow(B.x - A.x, 2) + pow(B.y - A.y, 2));
+    return tmp;	
+} 
+
+// Get input for a point
+Point shemotana() {
+    Point tmp;
+    cout << "x = "; cin >> tmp.x;
+    cout << "y = "; cin >> tmp.y;
+    return tmp;
+}
+
+// Print a point
+void gamotana(Point tmp) {
+    cout << "(" << tmp.x << "," << tmp.y << ")"; 
+}
+
+int main() {
+    // Get input for two points
+    Point a = shemotana();
+    Point b = shemotana();
+
+    // Print the distance between the points
+    cout << "d";
+    gamotana(a);
+    cout << ",";
+    gamotana(b);
+    cout << " = " << mandzili(a, b) << endl;
+
+    return 0;
+}
