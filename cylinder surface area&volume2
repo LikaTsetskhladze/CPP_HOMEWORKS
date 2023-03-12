@@ -1,0 +1,28 @@
+//surface area and volume of a cylinder
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+struct Cilinder {
+    double R;
+    double h;
+    double V();
+    double S();
+};
+
+double Cilinder::V() {
+    return h * M_PI * R * R;
+}
+
+double Cilinder::S() {
+    return 2 * h * M_PI * R * R;
+}
+
+int main() {
+    Cilinder C;
+    cout << "R = "; cin >> C.R;
+    cout << "h = "; cin >> C.h;
+    cout << "V = " << C.V() << endl;
+    cout << "S = " << C.S() << endl;
+    return 0;
+}
