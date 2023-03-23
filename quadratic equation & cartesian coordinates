@@ -1,0 +1,104 @@
+#include <iostream>
+#include <cmath> 
+using namespace std; 
+
+struct DecPoint {
+	double Ax;
+	double Ay;
+		
+};
+
+struct PollPoint {
+	double ro;
+	double fi;
+	
+};
+
+DecPoint getDecPoint() {
+	DecPoint tmp;
+	cout<<"Ax = "; cin>>tmp.Ax;
+	cout<<"Ay = "; cin>>tmp.Ay;
+	return tmp;
+}
+
+PollPoint getPollPoint() {
+	PollPoint tmp;
+	cout<<"Ro = "; cin>>tmp.ro;
+	cout<<"fi = "; cin>>tmp.fi;
+	return tmp;
+
+}
+
+void printDecPoint(DecPoint A) {
+	cout<<"("<<A.Ax<<","<<A.Ay<<")";
+}
+
+void printPollPoint(PollPoint A) {
+	cout<<"("<<A.ro<<","<<A.fi<<")";
+}
+
+PollPoint DecToPoll(DecPoint A) {
+	PollPoint tmp;
+	tmp.ro=sqrt(A.Ax*A.Ax+A.Ay*A.Ay);
+	tmp.fi=atan2(A.Ax, A.Ay);
+}
+
+DecPoint PolltoDec(PollPoint A) {
+	DecPoint tmp;
+	tmp.Ax=A.ro*cos(A.fi);
+	tmp.Ay=A.ro*sin(A.fi);
+	return tmp;
+}
+
+//mocemulia dekartis kordinantebis raime 3 wertili, ekranze gamovitanot am wertilebis rogorc dekartis aseve polaruli wert.
+
+int main(int argc, char** argv) {
+	DecPoint a=getDecPoint();
+	PollPoint Ap=DecToPoll(a);
+	printPollPoint(Ap); printDecPoint(a);
+
+	DecPoint b=getDecPoint();
+	PollPoint Bp=DecToPoll(b);
+	printPollPoint(Bp); printDecPoint(b);
+	
+	DecPoint c=getDecPoint();
+	PollPoint Cp=DecToPoll(c);
+	printPollPoint(Cp); printDecPoint(c);
+	
+	return 0;
+}
+
+struct KvgStruct {
+	double a;
+	double b;
+	double c;
+	double D() {
+		return b*b-4*a*c;
+	}
+	
+	double Re() {
+		return -b/(2*a); 
+	}
+	
+	double Im() {
+		return sqrt(fabs(D()))/(2*a); 
+	}
+};
+
+/*
+void printRoots(KvgStruct K) {
+	if (K.D()>=0) {
+		cout<<"x1 = "<<K.Re()-K.Im()<<"\nx2="<<K.Re()+K.Im(); 
+	}
+	else {
+		cout<<"x1 = "<<K.Re()<<"-i*"<<K.Im()<<"\nx2="<<K.Re()<<"+i*"<<K.Im(); 
+	} 
+}
+
+*/
+KvgStruct KoeficientisShemotana() {
+	KvgStruct tmp;
+	do { cout<<"a="; cin>>tmp.a;
+	} while (tmp.a==0);}
+	cout<<"b="; cin>>tmp.b;
+		cout<<"c="; cin>>tmp.c;
